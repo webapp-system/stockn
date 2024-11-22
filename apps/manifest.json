@@ -1,6 +1,6 @@
 {
     "name": "PWA System",
-    "short_name": "PWA",
+    "short_name": "ストックン",
     "background_color": "#fc980c",
     "icons": [{
         "src": "./icon-256.png",
