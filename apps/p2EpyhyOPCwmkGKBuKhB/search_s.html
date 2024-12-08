@@ -341,32 +341,204 @@
          </div>
      </header>
 
-     <div class="pagetop" id="makeImg">
-      <style type="text/css">
-        .pagetop {
-          margin       : auto;
-          width        : 100%;
-          height       : 20px;
-          background-color: rgb(255, 255, 255);
+ <div class="pagetop" id="makeImg">
+  <style type="text/css">
+    .pagetop {
+      margin       : auto;
+      width        : 100%;
+      height       : 20px;
+      background-color: rgb(255, 255, 255);
+     }
+    </style>
+ </div>  
+
+ <dic class="guide_list">
+  <a href="search_prefecture.html"><div class="guide_rules">
+    <h1>都道府県ごとに見る</h1>
+    <style text="type/css">
+      .guide_rules {
+        border-radius: 15px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: rgb(237, 125, 49);
+        margin: 10px 20% 10px 20%;
+        text-align: center;
+        width: 60%;
+      }
+      .guide_rules h1 {
+        color: rgb(237, 125, 49);
+        font-size: 45px;
+        margin: 0px;
+      }
+    </style>
+  <style text="type/css">
+    .guide_list a {
+      text-decoration:  none;
+    }
+  </style>
+</div>
+
+    <div class="new_shop">
+      <h2>新たに追加された店舗</h2>
+      <style text="type/css">
+       .new_shop h2 {
+         color: #000000;
+         margin: 45px 15px 0px 15px;
+         font-size: 30px;
+       }
+      </style>
+      <style>
+        .newshoplist{
+            overflow-x: scroll;
+            padding: 10px;
+            height: 450px;
+        }
+        .newshoplist_box{
+            /*コレ*/width: 200%;
+            display: flex;
+        }
+        .newshoplist_item{
+            height: 430px;
+            width: 600px;
+            border: 1px solid #999;
+            margin: 10px;
+            background: #ffffff;
         }
         </style>
-    </div>  
-
-<!-- 本来はここにsliderが入る（今は画像で応用）-->
-
-<div class="info_now">
-    <p>只今、ご案内できる店舗はございません。</p>
-    <img src="img/製作中画像.png">
-    <style text="type/css">
-        .info_now p {
-          text-align: center;
-        }
-        .info_now img {
-          width: 75%;
-          margin: 13%;
-        }
-    </style>
-</div>
+        <div class="newshoplist">
+            <div class="newshoplist_box">
+                <div class="newshoplist_item">
+                  <a href="shop/39010001.html">
+                      <div class="shopimg">
+                        <img src="img/39010001_img.JPG">
+                      </div>
+                      <div class="shopinfo">
+                        <p>長野県 長野市</p>
+                        <h2>長野西高校　購買</h2>
+                      </div>
+                  </a>
+                  <style>
+                    .shopimg img {
+                      width: 100%;
+                      margin: 0px;
+                      text-align: left;
+                    }
+                    .shopinfo p {
+                      margin: 2px;
+                      font-size: 12px;
+                      color: #000;
+                      text-align: left;
+                    }
+                    .shopinfo h2 {
+                      margin: 2px;
+                      font-size: 20px;
+                      color: #000;
+                    }
+                    .newshoplist_item a {
+                      text-decoration:  none;
+                    }
+                  </style>
+                </div>
+                <div class="newshoplist_item">
+                  <a href="新店舗リンク">
+                      <div class="shopimg">
+                        <img src="img/not image.jpg">
+                      </div>
+                      <div class="shopinfo">
+                        <p>　</p>
+                        <h2>準備中</h2>
+                      </div>
+                  </a>
+                  <style>
+                    .shopimg img {
+                      width: 100%;
+                      margin: 0px;
+                      text-align: left;
+                    }
+                    .shopinfo p {
+                      margin: 2px;
+                      font-size: 12px;
+                      color: #000;
+                      text-align: left;
+                    }
+                    .shopinfo h2 {
+                      margin: 2px;
+                      font-size: 20px;
+                      color: #000;
+                    }
+                    .newshoplist_item a {
+                      text-decoration:  none;
+                    }
+                  </style>
+                </div>
+                <div class="newshoplist_item">
+                  <a href="新店舗リンク">
+                      <div class="shopimg">
+                        <img src="img/not image.jpg">
+                      </div>
+                      <div class="shopinfo">
+                        <p> </p>
+                        <h2>準備中</h2>
+                      </div>
+                  </a>
+                  <style>
+                    .shopimg img {
+                      width: 100%;
+                      margin: 0px;
+                      text-align: left;
+                    }
+                    .shopinfo p {
+                      margin: 2px;
+                      font-size: 12px;
+                      color: #000;
+                      text-align: left;
+                    }
+                    .shopinfo h2 {
+                      margin: 2px;
+                      font-size: 20px;
+                      color: #000;
+                    }
+                    .newshoplist_item a {
+                      text-decoration:  none;
+                    }
+                  </style>
+                </div>
+                <div class="newshoplist_item">
+                  <a href="新店舗リンク">
+                      <div class="shopimg">
+                        <img src="img/not image.jpg">
+                      </div>
+                      <div class="shopinfo">
+                        <p> </p>
+                        <h2>準備中</h2>
+                      </div>
+                  </a>
+                  <style>
+                    .shopimg img {
+                      width: 100%;
+                      margin: 0px;
+                      text-align: left;
+                    }
+                    .shopinfo p {
+                      margin: 2px;
+                      font-size: 12px;
+                      color: #000;
+                      text-align: left;
+                    }
+                    .shopinfo h2 {
+                      margin: 2px;
+                      font-size: 20px;
+                      color: #000;
+                    }
+                    .newshoplist_item a {
+                      text-decoration:  none;
+                    }
+                  </style>
+                </div>
+            </div>
+        </div>
+      </div>
+     </div>
 
 <div class="pageend">
   <style type="text/css">
@@ -381,7 +553,7 @@
 
      <footer>
         <div class="reload">
-          <a href="home.html"><img src="img/reload.png" class="img-reload"></a>
+          <a href="search_s.html"><img src="img/reload.png" class="img-reload"></a>
         </div>  
         <div class="footer_main">
           <style>

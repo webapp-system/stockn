@@ -368,6 +368,75 @@
     </style>
 </div>
 
+<div class="list-container">
+  <div class="Llist">
+    <a href="buy005.html">
+      <div class="listblock" id="makeImg">
+        <img src="img/not image.jpg">
+        <div class="listtext">
+          <h1>おにぎり</h1>
+          <div class="listblock_last" id="makeImg"></div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="Rlist">
+    <a href="buy006.html">
+      <div class="listblock" id="makeImg">
+        <img src="img/not image.jpg">
+        <div class="listtext">
+          <h1>パン</h1>
+          <div class="listblock_last" id="makeImg"></div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <style type="text/css">
+    .listtitel {
+    	padding-left: 20px;
+    }
+    .Llist a {
+      text-decoration:none;
+      color: rgb(0, 0, 0);
+    }
+    .Rlist a {
+      text-decoration:none;
+      color: rgb(0, 0, 0);
+    }
+    .listblock {
+      width        : 100%;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 0 8px gray;
+    }
+    .listblock_last {
+      width: 100%;
+      height: 20px;
+      background-color: rgb(255, 255, 255);
+    }
+    .listtext {
+      margin : 0px 10px;
+      text-align: center;
+    }
+    .listtect h1 {
+      font-size: 600px;
+      margin: 0px;
+    }
+    .list-container {
+      display: flex;
+      justify-content: space-between; /* アイテム間のスペースを均等に配置 */
+      align-items: flex-start; /* 要素を上部に揃える */
+    }
+    .Llist, .Rlist {
+      flex: 1; /* 各リストの幅を均等に設定 */
+      margin: 10px; /* 両側に少しの余白を追加 */
+      box-sizing: border-box; /* パディングやボーダーを含めて幅を計算 */
+    }
+    .listblock img {
+      width: 100%;
+    }
+   </style> 
+</div>
+
 <div class="pageend">
   <style type="text/css">
     .pageend {
