@@ -9,30 +9,19 @@
 
 <body>
     <script>
-        const url = "https://script.google.com/macros/s/AKfycbx-H4K0JaChUxDxw6uBustZMo3sXotypdlQ0yAgPsMyVng6ifR0ar7s8B1HQNeD-6-5/exec"; // 控えたウェブアプリのURL
-        const data = {
-            cell: "A1", // 更新したいセル
-            value: 123, // 更新する値
-        };
-
-        fetch(url, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result); // 結果を確認
+        fetch('https://script.google.com/macros/s/AKfycbyisXl0OIz1lBGKijyH1R0AB1MI2E_iXNXQQ2JD-oz6rvCu_GfbjtCwY9aGMD3H9a0w/exec', {
+            method: 'POST',
+            body: JSON.stringify({
+                cell: 'A1',
+                value: '新しい値'
             })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+        })
+            .then(response => response.text())
+            .then(result => console.log(result));
 
     </Script>
 
-    as
+    asd
 
 </body>
 
