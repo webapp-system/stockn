@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- manifest.jsonを呼び出しています -->
   <link rel="manifest" href="./manifest.json">
   <script>
     // service workerが有効なら、service-worker.js を登録します
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js').then(function() { console.log('Service Worker Registered'); });
+      navigator.serviceWorker.register('./service-worker.js').then(function () { console.log('Service Worker Registered'); });
     }
   </script>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-     <title>ストックン</title>
-     <meta name="description" content="ストックンは商品の販売状況がリアルタイムで確認できるウェブアプリです。">
-     <meta property="og:site_name" content="ストックン">
-     <meta property="og:description" content="ストックンは商品の販売状況がリアルタイムで確認できるウェブアプリです。">
-     <!-- <meta property="og:type" content="ページのタイプを記載"> ←後で入力-->
-     <link rel="icon" href="img/favicon.ico">
-     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-     <link href="apps_top_base.css" rel="stylesheet">
-     <meta name="mobile-web-app-capable" content="yes">
-     <meta name="apple-mobile-web-app-capable" content="yes">
-  <link
-   rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>ストックン</title>
+  <meta name="description" content="ストックンは商品の販売状況がリアルタイムで確認できるウェブアプリです。">
+  <meta property="og:site_name" content="ストックン">
+  <meta property="og:description" content="ストックンは商品の販売状況がリアルタイムで確認できるウェブアプリです。">
+  <!-- <meta property="og:type" content="ページのタイプを記載"> ←後で入力-->
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link href="apps_top_base.css" rel="stylesheet">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
+
 <body>
   <div class="rogo">
     <img src="img/rogo.png">
     <style type="text/css">
-    .rogo img {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-    }
+      .rogo img {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+      }
     </style>
   </div>
 
@@ -43,19 +43,24 @@
     <button id="openModal" class="open-modal">ホーム画面に追加する</button>
 
     <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span id="closeModal">&times;</span>
-            <p>モーダルの内容です。</p>
-            <img src="img/製作中画像.png">
-            <style tyoe="text/css">
-              .modal-content {
-                width: 40%;
-                margin: 5%;
-              }
-            </style>
+      <div class="modal-content">
+        <span id="closeModal">&times;</span>
+        <div class="homeguide">
+          <h3>ホーム画面に追加する方法（iPhone）</h3>
+          <p>➀下部の中央にある共有マークをタップ<br>➁下にスクロールし、「ホーム画面に追加」をタップ<br>➂右上の完了をタップ<br>※現在androidではこの機能を利用することはできません。</p>
+          <style type="text/css">
+            .homeguide h3 {
+              font-size: 20px;
+              text-align: center;
+            }
+
+            .homeguide p {
+              font-size: 20px;
+            }
+          </style>
         </div>
-    </div>
-    <script>
+      </div>
+      <script>
         // モーダル要素を取得
         var modal = document.getElementById("myModal");
         // モーダルを開くボタンを取得
@@ -68,118 +73,162 @@
 
         // ページ遷移用の関数
         function startTimer() {
-            // 既存のタイマーをクリア（重複防止）
-            if (timerId) {
-                clearTimeout(timerId);
+          // 既存のタイマーをクリア（重複防止）
+          if (timerId) {
+            clearTimeout(timerId);
+          }
+          // 新しいタイマーを設定
+          timerId = setTimeout(function () {
+            // モーダルが表示されていない場合のみページ遷移を行う
+            if (modal.style.display !== "block") {
+              window.location.href = "p2EpyhyOPCwmkGKBuKhB/home.html"; // 遷移先URL
             }
-            // 新しいタイマーを設定
-            timerId = setTimeout(function () {
-                // モーダルが表示されていない場合のみページ遷移を行う
-                if (modal.style.display !== "block") {
-                    window.location.href = "p2EpyhyOPCwmkGKBuKhB/home.html"; // 遷移先URL
-                }
-            }, 2500); // 2.5秒
+          }, 2500); // 2.5秒
         }
 
         // ボタンがクリックされた時にモーダルを表示
         btn.onclick = function () {
-            modal.style.display = "block"; // モーダルのdisplayスタイルを"block"にして表示
-            clearTimeout(timerId); // モーダルが開いたらタイマーを停止
+          modal.style.display = "block"; // モーダルのdisplayスタイルを"block"にして表示
+          clearTimeout(timerId); // モーダルが開いたらタイマーを停止
         };
 
         // ×（クローズアイコン）がクリックされた時にモーダルを非表示
         span.onclick = function () {
-            modal.style.display = "none"; // モーダルのdisplayスタイルを"none"にして非表示
-            startTimer(); // モーダルが閉じたらタイマーを再開
+          modal.style.display = "none"; // モーダルのdisplayスタイルを"none"にして非表示
+          startTimer(); // モーダルが閉じたらタイマーを再開
         };
 
         // モーダルの外側がクリックされた時にモーダルを非表示
         window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                startTimer(); // モーダルが閉じたらタイマーを再開
-            }
+          if (event.target == modal) {
+            modal.style.display = "none";
+            startTimer(); // モーダルが閉じたらタイマーを再開
+          }
         };
 
         // 初期状態でタイマーを開始
         startTimer();
-    </script>
-    <style type="text/css">
-      /* モーダルを開くボタンのスタイル */
-      .open-modal {
-          position: absolute; /* ボタンをページ上に絶対位置で配置 */
-          top: 70%; /* ボタンを縦方向に中央に配置 */
-          left: 50%; /* ボタンを横方向に中央に配置 */
-          font-size: 25px; /* ボタン内のテキストのフォントサイズ */
-          font-weight: bold; /* テキストのフォントを太字に設定 */
-          color: #7e7e7e; /* ボタンのテキストカラーを白に設定 */
-          background: #ffffff; /* ボタンの背景色を黒に設定 */
-          border: #ffffff; /* ボタンの境界線を黒に設定 */
-          cursor: pointer; /* カーソルがホバーした時にポインタが表示されるように設定 */
-          transform: translate(-50%, -50%); /* 中央に位置するための補正 */
+      </script>
+      <style type="text/css">
+        /* モーダルを開くボタンのスタイル */
+        .open-modal {
+          position: absolute;
+          /* ボタンをページ上に絶対位置で配置 */
+          top: 70%;
+          /* ボタンを縦方向に中央に配置 */
+          left: 50%;
+          /* ボタンを横方向に中央に配置 */
+          font-size: 25px;
+          /* ボタン内のテキストのフォントサイズ */
+          font-weight: bold;
+          /* テキストのフォントを太字に設定 */
+          color: #7e7e7e;
+          /* ボタンのテキストカラーを白に設定 */
+          background: #ffffff;
+          /* ボタンの背景色を黒に設定 */
+          border: #ffffff;
+          /* ボタンの境界線を黒に設定 */
+          cursor: pointer;
+          /* カーソルがホバーした時にポインタが表示されるように設定 */
+          transform: translate(-50%, -50%);
+          /* 中央に位置するための補正 */
         }
-  
+
         /* モーダルウィンドウの基本スタイル */
         .modal {
-          display: none; /* デフォルトでは非表示に設定 */
-          position: fixed; /* モーダルがページ全体に固定されるように設定 */
-          top: 0; /* ページの最上部からスタート */
-          left: 0; /* ページの最左端からスタート */
-          width: 100%; /* モーダルが画面全体の幅を占める */
-          height: 100%; /* モーダルが画面全体の高さを占める */
-          background-color: rgba(0, 0, 0, 0.4); /* 背景を半透明の黒に設定（モーダルの背後が見えるように） */
+          display: none;
+          /* デフォルトでは非表示に設定 */
+          position: fixed;
+          /* モーダルがページ全体に固定されるように設定 */
+          top: 0;
+          /* ページの最上部からスタート */
+          left: 0;
+          /* ページの最左端からスタート */
+          width: 100%;
+          /* モーダルが画面全体の幅を占める */
+          height: 100%;
+          /* モーダルが画面全体の高さを占める */
+          background-color: rgba(0, 0, 0, 0.4);
+          /* 背景を半透明の黒に設定（モーダルの背後が見えるように） */
         }
-  
+
         .modal-content {
-          position: fixed; /* モーダル内容が画面上に固定されるように設定 */
-          top: 50%; /* 縦方向の中央に配置 */
-          left: 50%; /* 横方向の中央に配置 */
-          transform: translate(-50%, -50%); /* 完全に中央に配置するための補正 */
-          padding: 2%; /* モーダル内の余白を設定 */
-          width: 86%; /* モーダルの幅 */
-          height: 80%; /* モーダルの高さ */
-          background-color: #fefefe; /* モーダルの背景色を白に設定 */
-          border: 1px solid #888; /* 境界線の色を薄いグレーに設定 */
-          border-radius: 10px; /* モーダルの角を丸くするための半径 */
+          position: fixed;
+          /* モーダル内容が画面上に固定されるように設定 */
+          top: 50%;
+          /* 縦方向の中央に配置 */
+          left: 50%;
+          /* 横方向の中央に配置 */
+          transform: translate(-50%, -50%);
+          /* 完全に中央に配置するための補正 */
+          padding: 2%;
+          /* モーダル内の余白を設定 */
+          width: 60%;
+          /* モーダルの幅 */
+          height: 30%;
+          /* モーダルの高さ */
+          background-color: #fefefe;
+          /* モーダルの背景色を白に設定 */
+          border: 1px solid #888;
+          /* 境界線の色を薄いグレーに設定 */
+          border-radius: 10px;
+          /* モーダルの角を丸くするための半径 */
         }
-  
+
         /* モーダルを閉じるボタン（×）のスタイル */
         #closeModal {
-          position: absolute; /* モーダル内で絶対位置に配置 */
-          display: flex; /* ボタン内のテキストが中央に配置されるようにフレックスボックスを使用 */
-          align-items: center; /* ボタン内のテキストを縦方向に中央揃え */
-          justify-content: center; /* ボタン内のテキストを横方向に中央揃え */
-          top: -30%; /* モーダル内容の上部から離れた位置に配置 */
-          right: -10%; /* モーダル内容の右端から離れた位置に配置 */
-          font-size: 28px; /* 閉じるボタンのフォントサイズ */
-          font-weight: bold; /* 閉じるボタンのフォントを太字に設定 */
-          cursor: pointer; /* ホバー時にポインタが表示されるように設定 */
-          color: #FFF; /* 閉じるボタンのテキストカラーを白に設定 */
-          width: 40px; /* ボタンの幅 */
-          height: 40px; /* ボタンの高さ */
-          background-color: rgb(237, 125, 49); /* ボタンの背景色をダークグレーに設定 */
-          border: rgb(237, 125, 49); /* ボタンの境界線を背景と同じ色に設定 */
-          border-radius: 50%; /* ボタンを丸くするための半径 */
+          position: absolute;
+          /* モーダル内で絶対位置に配置 */
+          display: flex;
+          /* ボタン内のテキストが中央に配置されるようにフレックスボックスを使用 */
+          align-items: center;
+          /* ボタン内のテキストを縦方向に中央揃え */
+          justify-content: center;
+          /* ボタン内のテキストを横方向に中央揃え */
+          top: -4%;
+          /* モーダル内容の上部から離れた位置に配置 */
+          right: -4%;
+          /* モーダル内容の右端から離れた位置に配置 */
+          font-size: 28px;
+          /* 閉じるボタンのフォントサイズ */
+          font-weight: bold;
+          /* 閉じるボタンのフォントを太字に設定 */
+          cursor: pointer;
+          /* ホバー時にポインタが表示されるように設定 */
+          color: #FFF;
+          /* 閉じるボタンのテキストカラーを白に設定 */
+          width: 40px;
+          /* ボタンの幅 */
+          height: 40px;
+          /* ボタンの高さ */
+          background-color: rgb(237, 125, 49);
+          /* ボタンの背景色をダークグレーに設定 */
+          border: rgb(237, 125, 49);
+          /* ボタンの境界線を背景と同じ色に設定 */
+          border-radius: 50%;
+          /* ボタンを丸くするための半径 */
         }
-    </style>
-  </div>
+      </style>
+    </div>
 
-  <div class="skip"><a href="p2EpyhyOPCwmkGKBuKhB/home.html">
-    <h1>スキップ</h1>
-    <style text="type/css">
-      .skip h1 {
-        color: rgb(237, 125, 49);
-        margin: 30px 30px 100px 30px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        font-family: sans-serif;
-      }
-      .skip a {
-        text-decoration: none;
-      }
-    </style>
-  </a></div>
+    <div class="skip"><a href="p2EpyhyOPCwmkGKBuKhB/home.html">
+        <h1>スキップ</h1>
+        <style text="type/css">
+          .skip h1 {
+            color: rgb(237, 125, 49);
+            margin: 30px 30px 100px 30px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            font-family: sans-serif;
+          }
+
+          .skip a {
+            text-decoration: none;
+          }
+        </style>
+      </a></div>
 </body>
+
 </html>
